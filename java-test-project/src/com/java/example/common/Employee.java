@@ -7,12 +7,14 @@ public class Employee implements Serializable {
 
     private int id;
     private String name;
+    private String department;
     private int age;
 
-    public Employee(int id, String name, int age) {
+    public Employee(int id, String name,String department, int age) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.department = department;
     }
 
     @Override
