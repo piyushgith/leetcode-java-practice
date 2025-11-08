@@ -29,9 +29,11 @@ public class Main {
 
         int result = binarySearch(sorted, 45);
 
-        bfs(new int[][]{{1, 2}, {0, 3, 4}, {0, 4}, {1, 5}, {1, 2, 5}, {3, 4}}, 0);
+        //bfs(new int[][]{{1, 2}, {0, 3, 4}, {0, 4}, {1, 5}, {1, 2, 5}, {3, 4}}, 0);
 
+        dfs(new int[][]{{1, 2}, {0, 3, 4}, {0, 4}, {1, 5}, {1, 2, 5}, {3, 4}}, 0, new boolean[6]);
 
+        //printDFS();
     }
 
     public static int binarySearch(int[] arr, int key) {
@@ -71,5 +73,22 @@ public class Main {
                 }
             }
         }
+    }
+
+    //dfs example
+    public static void dfs(int[][] graph, int start, boolean[] visited) {
+        visited[start] = true;
+        System.out.print(start + "==> ");
+        for (int neighbor : graph[start]) {
+            if (!visited[neighbor]) {
+                dfs(graph, neighbor, visited);
+            }
+        }
+    }
+
+    //print dfs
+    public static void printDFS(int[][] graph, int start) {
+        boolean[] visited = new boolean[graph.length];
+        dfs(graph, start, visited);
     }
 }

@@ -20,28 +20,28 @@ public class VirtualThreadExamples {
 
     public static void main(String[] args) throws Exception {
         System.out.println("=== Example 1: HTTP Requests ===");
-        asyncHttpRequests();
+        //asyncHttpRequests();
 
         System.out.println("\n=== Example 2: Database Operations ===");
-        asyncDatabaseOperations();
+        //asyncDatabaseOperations();
 
         System.out.println("\n=== Example 3: Structured Concurrency ===");
-        structuredConcurrency();
+        //structuredConcurrency();
 
         System.out.println("\n=== Example 4: ReentrantLock ===");
-        reentrantLockExample();
+        //reentrantLockExample();
 
         System.out.println("\n=== Example 5: Producer-Consumer ===");
-        producerConsumerExample();
+        //producerConsumerExample();
 
         System.out.println("\n=== Example 6: Rate Limiting ===");
         rateLimitingExample();
 
         System.out.println("\n=== Example 7: File Operations ===");
-        asyncFileOperations();
+       // asyncFileOperations();
 
         System.out.println("\n=== Example 8: Async Chaining ===");
-        asyncChaining();
+        //asyncChaining();
     }
 
     // Example 1: HTTP Client with Virtual Threads (No Pinning)
