@@ -1,4 +1,4 @@
-package com.java.example.collection;
+package com.java.example.fintech.examples;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

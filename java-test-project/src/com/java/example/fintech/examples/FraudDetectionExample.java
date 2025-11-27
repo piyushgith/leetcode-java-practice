@@ -1,4 +1,4 @@
-package com.java.example.collection;
+package com.java.example.fintech.examples;
 
 import java.math.BigDecimal;
 import java.time.Duration;
@@ -30,6 +30,7 @@ public class FraudDetectionExample {
         Map<String, List<Transfer>> transfersByAccount = new HashMap<>();
         Set<String> suspiciousAccounts = new HashSet<>();
 
+        //group transfers by source account
         for (Transfer t : transfers) {
             transfersByAccount.computeIfAbsent(t.getSourceAccount(), k -> new ArrayList<>()).add(t);
         }
@@ -48,6 +49,7 @@ public class FraudDetectionExample {
             for (int i = 0; i < accountTransfers.size(); i++) {
                 LocalDateTime windowStart = accountTransfers.get(i).getTimestamp();
                 LocalDateTime windowEnd = windowStart.plus(WINDOW_DURATION);
+                //LocalDateTime windowEnd = windowStart.plusMinutes(5);
 
                 Set<String> uniqueDestinations = new HashSet<>();
                 int transferCount = 0;
@@ -55,7 +57,6 @@ public class FraudDetectionExample {
                 // Count transfers and unique destinations within the window
                 for (int j = i; j < accountTransfers.size(); j++) {
                     Transfer t = accountTransfers.get(j);
-
                     // Check if transfer is within the 5-minute window
                     if (!t.getTimestamp().isAfter(windowEnd)) {
                         transferCount++;
